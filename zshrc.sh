@@ -48,7 +48,7 @@ function update_current_git_vars() {
         _GIT_STATUS=`python ${gitstatus} 2>/dev/null`
     fi
     if [[ "$GIT_PROMPT_EXECUTABLE" == "haskell" ]]; then
-        local gitstatus="$__GIT_PROMPT_DIR/dist/build/gitstatus/gitstatus"
+        local gitstatus="$HOME/.local/bin/gitstatus"
         _GIT_STATUS=`${gitstatus}`
     fi
      __CURRENT_GIT_STATUS=("${(@s: :)_GIT_STATUS}")
@@ -94,8 +94,8 @@ git_super_status() {
 }
 
 # Default values for the appearance of the prompt. Configure at will.
-ZSH_THEME_GIT_PROMPT_PREFIX="("
-ZSH_THEME_GIT_PROMPT_SUFFIX=")"
+ZSH_THEME_GIT_PROMPT_PREFIX="["
+ZSH_THEME_GIT_PROMPT_SUFFIX="]"
 ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
 ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[magenta]%}"
 ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[red]%}%{●%G%}"
